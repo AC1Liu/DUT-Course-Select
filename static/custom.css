@@ -1,0 +1,158 @@
+@font-face {
+    font-family: MathJax_Main-Regular;
+    src: url('./MathJax_Main-Regular.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: MathJax_Math-Italic;
+    src: url('./MathJax_Math-Italic.woff') format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+#cnblogs_post_body .math {
+    font-family: MathJax_Math-Italic, MathJax_Main-Regular;
+    font-size: 100%;
+}
+
+#cnblogs_post_body .text {
+    font-family: MathJax_Main-Regular;
+    font-size: 100%;
+}
+
+.charm-bar-wrapper{
+    display: none !important;
+}
+
+
+.catListTitle{
+    margin-top: 15px !important;
+}
+#profile_block{
+    display: none;
+}
+
+.token.comment {
+    font-style: unset !important;
+}
+.cnblogs-markdown :not(pre, div, td)>code, .blogpost-body :not(pre, div, td)>code {
+    font-family: "SF Mono", Consolas !important;
+}
+
+.loading {
+    position: unset !important;
+}
+
+.postCon,.entrylistPostSummary{
+    display: none;
+}
+
+.postDesc {
+}
+
+.postTitle2.vertical-middle {
+    font-size: 22.5px;
+}
+
+.day{
+    border-top: #e0e0e0 1px dotted;
+    border-right: #e0e0e0 1px dotted;
+    border-bottom: #e0e0e0 1px dotted;
+    border-left: #e0e0e0 1px dotted;
+    padding-top: 20px; padding-right: 10px;
+    padding-bottom: 20px !important; padding-left: 12.5px;
+    margin-top: 35px !important; margin-bottom: 35px !important;
+}
+
+.cpright,
+#stats_article_count,
+#navigator{
+    display:none;
+}
+
+#blogTitle h1 a {
+    font-family: "方正兰亭黑简体" !important;
+}
+
+
+html,body{
+     height:100%;
+     width:100%;
+}
+/* body{
+       overflow: hidden;
+} */
+#loading{          
+     width:100%;
+     height:100%;
+     background-image:url('./2701177-20221126111213601-1449294870.jpg');
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     position:fixed; /* fixed */
+     z-index: 100;/*用来显示在最前面*/
+     text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-origin: initial;
+    background-clip: initial;
+}
+.load{
+    margin: auto;
+    position: absolute;
+    color: white;
+    font-weight: 1000;
+    font-size: 22.5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 300px;
+}
+ /*这里是页面正常显示部分，全部设为display:none*/
+.wrapper{
+        display: none;
+}
+.sweet-alert {
+    margin-left: -200px !important;
+}
+
+/* .ui.container {
+    width: 1200px !important;
+} */
+
+#green_channel #green_channel_wechat{
+    display: none;
+}
+#ad_t2{
+    display: none;
+}
+.under_post_kb,.ad_text_commentbox,.under-post-card{
+    display: none;
+}
+#cnblogs_c1{
+    display: none;
+}
+#cnblogs_c2{
+    display: none;
+}
+#opt_under_post{
+    display: none;
+}
+#blog_c1{
+    display: none;
+}
+#blog_c2{
+    display: none;
+}
+.comment-nav-left{
+    display: none;
+}

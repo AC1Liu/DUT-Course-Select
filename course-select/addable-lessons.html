@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height:80vh; --cnb-code-bg:rgba(0, 0, 0, 0); --cnb-code-font-size:16px; --cnb-code-color:rgb(0, 0, 0);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>全校开课查询</title>
+
+    <style>
+    #home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([class*="language-"]):not([highlighted]):not(.hljs):not([class*="brush:"]), :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([class*="language-"]):not([highlighted]):not(.hljs):not([class*="brush:"]) {background: rgba(0, 0, 0, 0);
+        padding: 0px;
+        border: 0px none rgb(0, 0, 0);
+        border-radius: 0px;
+        border-color: transparent;
+        color: rgb(0, 0, 0);
+        font-family: "SF Mono", "Courier New", sans-serif, Consolas, Monaco;
+        font-size: 16px
+    </style>
+    <link rel="stylesheet" href="/static/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="/static/bundle-simplememory.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/custom.css">
+    <link type="text/css" rel="stylesheet" href="/static/SFMono-Regular.min.css">
+    <script src="/static/jquery-3.3.1.min.js"></script>
+<style>
+.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: pointer;
+  cursor: zoom-out;
+  will-change: transform;
+}
+
+.box {
+    width: 150px;
+  float:left
+}
+label {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    line-height: 50px;
+    color: #999;
+    padding-left:40px;
+}
+label:active {
+    background: #EEEEEE;
+}
+label:after {
+    content: ""; /*必须设置*/
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #0099FF;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border-radius: 20px;
+}
+input:checked + label:after {
+    background-color: #0099FF;
+}
+.active:after {
+    content: ""; /*必须设置*/
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #0099FF;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border-radius: 20px;
+}
+</style>
+<link id="highlighter-theme-prism-vsc-dark-plus" href="/static/prism-vsc-dark-plus.css" rel="stylesheet" type="text/css"><script id="prismjs-script" src="/static/prism.js" type="text/javascript" async=""></script>
+<link rel="stylesheet" href="/static/vex.min.css">
+<link rel="stylesheet" href="/static/vex-theme-default.min.css">
+<script src="/static/vex.combined.min.js"></script>
+<link rel="stylesheet" href="/static/share.css">
+<link id="prism-line-numbers-style" href="/static/prism-line-numbers.css" rel="stylesheet" type="text/css"><script id="prismjs-autoloader-script" src="/static/prism-autoloader.min.js" type="text/javascript" async=""></script><script id="prism-line-numbers-script" src="/static/prism-line-numbers.min.js" type="text/javascript" async=""></script><link rel="shortcut icon" id="favicon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body class="skin-simplememory no-navbar">
+    <div id="page_begin_html">
+        <div id="loading">
+    <div class="load" style="text-align:center;">
+        <img src="/static/2701177-20221126115235404-1324662140.gif">
+        <p id="loadtext">加载中…</p>
+    </div>
+</div>
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/iconfont.css">
+<link rel="stylesheet" href="/static/main.css">
+<script src="/static/bootstrap.min.js" defer=""></script>
+<script src="/static/klorofil-common.js" defer=""></script>
+
+<link id="MainCss" rel="stylesheet" href="/static/blogmain-new.css">
+
+<script>  
+var OriginTitile = document.title;    // 保存之前页面标题  
+var titleTime;  
+document.addEventListener('visibilitychange', function(){  
+    document.title = '欢迎回来 (╭ ´ ▽ ` )╭';  // 切入文字
+    titleTime = setTimeout(function() {  
+        document.title = OriginTitile;  
+    }, 1000); // 2秒后恢复原标题 
+});
+</script>
+<a href="javascript:history.go(-1);" style="position: fixed;margin-top: -30px;margin-left: 50px;z-index:1000;">上一页</a>
+<div class="ui fixed borderless menu" style="position: fixed; height: 59px; overflow-x: auto;">
+    <div class="ui container">
+					<div class="navbar-btn">
+						<button type="button" class="btn-toggle-fullwidth" title="点击展开/收起边栏"><i class="icon iconfont fo24"></i></button>
+					</div>
+        <div class="header item">
+            <span style="font-family: Minecraft Ten; font-size: 1.5em; font-weight: 300;">1Liu</span>
+        </div>
+    </div>
+</div>
+
+<div id="wrapper">
+    <div id="sidebar-nav" class="sidebar" style="overflow-y:auto;overflow-x:hidden">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 95%;">
+            <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: 95%;">
+                <nav>
+                    <ul class="nav navMu">
+                        <li><a href="https://www.cnblogs.com/AC1Liu/"><i class="home icon"></i> <span class="home">首页</span></a></li>
+                        <li><a href="https://www.cnblogs.com/AC1Liu/p/"><i class="list icon"></i> <span class="note">我的随笔</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/articles/Links.html#Links" data-toggle="collapse" class="levelOne-pjftjfx collapsed"><i class="linkify icon"></i><span>常用链接</span> <i class="icon-submenu icon iconfont" style="font-size: 24px;margin-top: -9px;"></i></a>
+                            <div id="Links" class="collapse ">
+                                <ul class="nav">
+                                    <li><a href="http://portal.dlut.edu.cn/">大工校园门户</a></li>
+                                    <li><a href="http://mail.dlut.edu.cn/">大工电子邮件</a></li>
+                                    <li><a href="http://pan.dlut.edu.cn/">大工云盘</a></li>
+                                    <li><a href="https://csacademy.com/app/graph_editor/">图论作图工具</a></li>
+                                    <li><a href="https://latex.codecogs.com/eqneditor/editor.php">LaTeX 工具</a></li>
+                                    <li><a href="https://www.cnblogs.com/1Liu/articles/Links.html"><i></i>更多…</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="https://msg.cnblogs.com/send/AC1Liu"><i class="chat icon"></i> <span class="contact">联系我</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/p/MessageBoard.html"><i class="clipboard icon"></i> <span class="msg">留言板</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/p/16349331.html"><i class="star icon"></i> <span class="lnk">友情链接</span></a></li>
+                        <li><a href="javascript:void(0)" data-rss="https://www.cnblogs.com/AC1Liu/rss/" id="blog_nav_rss"><i class="feed icon"></i> <span class="feed">RSS订阅</span></a></li>
+                        <li><a href="https://i.cnblogs.com/"><i class="setting icon"></i> <span class="bkgrd">管理后台</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+<!--done-->
+<h1>全校开课查询<button type="button" class="hr-button" style="user-select: none; margin-left: 5%; font-size: 14px;" onclick="history.go(-1);">返回</button></h1>
+
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+      <p>当前选课：<span style="font-weight: bold;">仅用于全校开课查询</span></p>
+    <div class="clearfix" id="schoolid">
+      <h2 style="font-family: '方正兰亭黑简体';">选择校区</h2>
+      <div class="box"><label for="radio5" class="text active" onclick="init(undefined)">全部</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="init('凌水主校区')">凌水主校区</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="init('开发区校区')">开发区校区</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="init('盘锦校区')">盘锦校区</label></div>
+    </div>
+    <br>
+    <div class="clearfix" id="gradeid">
+      <h2 style="font-family: '方正兰亭黑简体';">选择上课年级</h2>
+      <div class="box"><label for="radio5" class="text active" onclick="initgrade(undefined)">全部</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2019')">2019级</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2020')">2020级</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2021')">2021级</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2022')">2022级</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2023')">2023级</label></div>
+      <div class="box"><label for="radio5" class="text" onclick="initgrade('2024')">2024级</label></div>
+    </div>
+    <br>
+    <div class="item">
+      <h2 style="font-family: '方正兰亭黑简体';">输入课程 ID</h2>
+      <input id="courseid" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="根据课程 ID 筛选条件，可不填">
+      <br>
+      <h2 style="font-family: '方正兰亭黑简体';">输入课程名称</h2>
+      <input id="coursename" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="根据课程名称筛选条件，可不填">
+      <br>
+      <h2 style="font-family: '方正兰亭黑简体';">输入课程代码</h2>
+      <input id="coursecode" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="根据课程代码筛选条件，可不填">
+      <br>
+      <h2 style="font-family: '方正兰亭黑简体';">输入课程教师</h2>
+      <input id="coursetea" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="根据课程教师筛选条件，可不填">
+    </div>
+    <br>
+    <button type="button" class="hr-button" style="margin: calc(2rem - .14285714em) 0 3rem 1rem; user-select: none;" onclick="query();">查询</button>
+    <div class="tab-container">
+      <div id="tab" class="tab-content" style="display: none;">
+        <table id="tabListStu" class="tab_report tab table2excelSingle">
+            <thead class="text-center xscjThead">
+                <tr style="background-color:#09f;color:#ffffff">
+                    <th class="text-center ver-middle minWid-80" rowspan="2">课程ID</th>
+                    <th class="text-center ver-middle minWid-80" rowspan="2">课程名称</th>
+                    <th class="text-center ver-middle minWid-80" rowspan="2">课程代码</th>
+                    <th class="text-center ver-middle minWid-80" rowspan="2">课程教师</th>
+                    <th class="text-center ver-middle minWid-80" rowspan="2">上课年级</th>
+                    <th class="text-center ver-middle minWid-80" rowspan="2">上课班级</th>
+                </tr>
+            </thead>
+            <tbody class="xscjTbody" id="tablebody">
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <script>
+    vex.dialog.defaultAlertOptions.buttons={};
+    vex.defaultOptions.overlayClosesOnClick=false;
+    vex.defaultOptions.className = 'vex-theme-default';
+    $(document).on('click', '.text', function () {
+      $(this).addClass('active').parent().siblings().children('.text').removeClass('active');
+    });
+    let v=2474;// 对应的选课学期
+    let listid;
+    let schoolid;
+    let gradeid;
+    let data;
+    function init(name) { schoolid=name; }
+    function initgrade(name) { gradeid=name; }
+    function query() {
+      var filtered;
+      if(schoolid===undefined) filtered=data;
+      else filtered=data.filter(function(item) { return item.campus.nameZh.toLowerCase().includes(schoolid.toLowerCase()); });
+      if(gradeid!==undefined)
+        filtered=filtered.filter(function(item) {
+          var f=0;
+          item.attendGrades.forEach(function(arr) {
+            if(arr.toLowerCase().includes(gradeid.toLowerCase())) { f=1; return; }
+          });
+          return f;
+        });
+      if(document.getElementById("courseid").value!=='')
+        filtered=filtered.filter(function(item) { return item.id.toString().toLowerCase().includes(document.getElementById("courseid").value.toLowerCase()); });
+      if(document.getElementById("coursename").value!=='')
+        filtered=filtered.filter(function(item) { return item.course.nameZh.toLowerCase().includes(document.getElementById("coursename").value.toLowerCase()); });
+      if(document.getElementById("coursecode").value!=='')
+        filtered=filtered.filter(function(item) { return item.code.toLowerCase().includes(document.getElementById("coursecode").value.toLowerCase()); });
+      if(document.getElementById("coursetea").value!=='')
+        filtered=filtered.filter(function(item) {
+          var f=0;
+          item.teachers.forEach(function(arr) {
+            if(arr.nameZh.toLowerCase().includes(document.getElementById("coursetea").value.toLowerCase())) { f=1; return; }
+          });
+          return f;
+        });
+      var str='';
+      for(var i in filtered) {
+          if(i&1) str+='<tr style="background-color: rgb(229, 229, 229);">';
+          else str+='<tr style="background-color: rgb(251, 251, 251);">';
+          str+=`<td>${filtered[i].id}</td>`;
+          str+=`<td>${filtered[i].course.nameZh}`;
+          if(filtered[i].minorCourse!==null) str+=`<sup style="font-weight: bold; color: #106ebe;">${filtered[i].minorCourse.nameZh}</sup>`
+          str+=`</td>`;
+          str+=`<td>${filtered[i].code}</td>`;
+          str+=`<td>`;
+          filtered[i].teachers.forEach(function(arr) {
+              str+=`${arr.nameZh};`;
+          });
+          if(filtered[i].teachers!=false) str=str.slice(0,-1); str+=`</td>`;
+          str+=`<td>`;
+          filtered[i].attendGrades.forEach(function(arr) {
+              str+=`${arr};`;
+          });
+          if(filtered[i].attendGrades!=false) str=str.slice(0,-1); str+=`</td>`;
+          str+=`<td>${filtered[i].nameZh}</td>`;
+          str+='</tr>';
+      }
+      document.getElementById('tablebody').innerHTML=str;
+      document.getElementById('tab').style.display="block";
+      if(filtered==false) swal({
+        title: "提示",
+        text: "根据你的查询条件，未找到任何课程",
+        type: "error",
+        showConfirmButton: false,
+        showCancelButton: true,
+        cancelButtonText: "确定",
+        closeOnConfirm: false
+      });
+    }
+    function getcourses() {
+      fetch('http://cdn-dlut.supwisdom.com/student/cache/course-select/addable-lessons/'+v+'/'+listid+'.json', {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(result => {
+          data=JSON.parse(result.data);
+          $('#loading').fadeOut();
+          $('.wrapper').fadeIn();
+          vex.closeTop();
+        })
+        .catch(error => {
+            swal({
+                title: "更新",
+                text: "获取数据失败，请稍后重试",
+                type: "error",
+                confirmButtonText: "刷新页面",
+                closeOnConfirm: false
+              },
+              function(){
+                location.reload();
+              });
+        });
+    }
+    vex.dialog.alert({unsafeMessage: '正在载入数据，请稍候…<br>'});
+    fetch('/course-select/version.php?v='+v, {
+      method: 'GET'
+    })
+      .then(response => response.json())
+      .then(result => {
+        listid=result.itemList[0]; getcourses();
+      })
+      .catch(error => {
+          vex.closeTop();
+          swal({
+              title: "更新",
+              text: "获取数据失败，请稍后重试",
+              type: "error",
+              confirmButtonText: "刷新页面",
+              closeOnConfirm: false
+            },
+            function(){
+              location.reload();
+            });
+      });
+  </script>
+  <noscript>
+    <div class="sweet-overlay" tabindex="-1" style="opacity: 1.11; display: block;"></div>
+    <div class="sweet-alert showSweetAlert visible" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="display: block; margin-top: -101px; user-select: none;"><div class="sa-icon sa-error animateErrorIcon" style="display: block;">
+      <span class="sa-x-mark animateXMark">
+        <span class="sa-line sa-left"></span>
+        <span class="sa-line sa-right"></span>
+      </span>
+    </div><h2>提示</h2>
+    <p style="display: block; 
+    flex-direction: column;"><br><br>若要访问全部功能，请允许 JavaScript 在本页面上运行<span style="color: red;">（开启运行权限后请刷新页面）</span></p>
+    </div>
+  </noscript>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2025 1Liu
+<br>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+    <div id="page_end_html">
+        <div style="display:none;">
+<div style="height: calc(100vh); width: 100%;"></div>
+<link rel="stylesheet" href="/static/swal-new.css">
+<script src="/static/sweetalert-dev.js"></script>
+<script type="text/javascript" language="javascript">
+window.alert = function (txt) {
+  // vex.defaultOptions.className = 'vex-theme-default'
+  //   vex.dialog.confirm({message: txt, callback: function(value){}})
+  swal({
+    title: "",
+    text: txt,
+    type: "error",
+    showCancelButton: true,
+    showConfirmButton: false,
+    cancelButtonText: "确定"
+  });
+}
+function weblink(obj){
+    var link = obj.href;
+    // console.log(link);
+    if (link != null && link != '')
+    {
+        if(link.substr(0,25).toLowerCase()=="http://www.cnblogs.com"||link.substr(0,25).toLowerCase()=="https://www.cnblogs.com"){
+            return true;
+        }else{
+            if(confirm('您即将访问 '+link+'. 该网站不属于博客园，可能存在安全风险，请谨慎访问. 确定继续吗？'))
+            {
+                window.location.href = link;
+            }
+        }
+    }
+    return false;
+}
+</script></div>
+
+    </div>
+</body></html>

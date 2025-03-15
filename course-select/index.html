@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height:80vh; --cnb-code-bg:rgba(0, 0, 0, 0); --cnb-code-font-size:16px; --cnb-code-color:rgb(0, 0, 0);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>大工教务选课系统</title>
+
+    <style>
+    #home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([class*="language-"]):not([highlighted]):not(.hljs):not([class*="brush:"]), :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([class*="language-"]):not([highlighted]):not(.hljs):not([class*="brush:"]) {background: rgba(0, 0, 0, 0);
+        padding: 0px;
+        border: 0px none rgb(0, 0, 0);
+        border-radius: 0px;
+        border-color: transparent;
+        color: rgb(0, 0, 0);
+        font-family: "SF Mono", "Courier New", sans-serif, Consolas, Monaco;
+        font-size: 16px
+    </style>
+    <link rel="stylesheet" href="/static/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="/static/bundle-simplememory.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/custom.css">
+    <link type="text/css" rel="stylesheet" href="/static/SFMono-Regular.min.css">
+    <script src="/static/jquery-3.3.1.min.js"></script>
+<style>
+.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: pointer;
+  cursor: zoom-out;
+  will-change: transform;
+}
+</style>
+<link id="highlighter-theme-prism-vsc-dark-plus" href="/static/prism-vsc-dark-plus.css" rel="stylesheet" type="text/css"><script id="prismjs-script" src="/static/prism.js" type="text/javascript" async=""></script>
+
+<link id="prism-line-numbers-style" href="/static/prism-line-numbers.css" rel="stylesheet" type="text/css"><script id="prismjs-autoloader-script" src="/static/prism-autoloader.min.js" type="text/javascript" async=""></script><script id="prism-line-numbers-script" src="/static/prism-line-numbers.min.js" type="text/javascript" async=""></script><link rel="shortcut icon" id="favicon" href="/static/favicon.ico" type="image/x-icon">
+</head>
+<body class="skin-simplememory no-navbar">
+    <div id="page_begin_html">
+        <div id="loading">
+    <div class="load" style="text-align:center;">
+        <img src="/static/2701177-20221126115235404-1324662140.gif">
+        <p>加载中…</p>
+    </div>
+</div>
+<link rel="stylesheet" href="/static/bootstrap.min.css">
+<link rel="stylesheet" href="/static/iconfont.css">
+<link rel="stylesheet" href="/static/main.css">
+<script src="/static/bootstrap.min.js" defer=""></script>
+<script src="/static/klorofil-common.js" defer=""></script>
+<link rel="stylesheet" href="/static/vex.min.css">
+<link rel="stylesheet" href="/static/vex-theme-default.min.css">
+<script src="/static/vex.combined.min.js"></script>
+<link id="MainCss" rel="stylesheet" href="/static/blogmain-new.css">
+
+<script>  
+var OriginTitile = document.title;    // 保存之前页面标题  
+var titleTime;  
+document.addEventListener('visibilitychange', function(){  
+    document.title = '欢迎回来 (╭ ´ ▽ ` )╭';  // 切入文字
+    titleTime = setTimeout(function() {  
+        document.title = OriginTitile;  
+    }, 1000); // 2秒后恢复原标题 
+});
+</script>
+<a href="javascript:history.go(-1);" style="position: fixed;margin-top: -30px;margin-left: 50px;z-index:1000;">上一页</a>
+<div class="ui fixed borderless menu" style="position: fixed; height: 59px; overflow-x: auto;">
+    <div class="ui container">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth" title="点击展开/收起边栏"><i class="icon iconfont fo24"></i></button>
+                    </div>
+        <div class="header item">
+            <span style="font-family: Minecraft Ten; font-size: 1.5em; font-weight: 300;">1Liu</span>
+        </div>
+    </div>
+</div>
+
+<div id="wrapper">
+    <div id="sidebar-nav" class="sidebar" style="overflow-y:auto;overflow-x:hidden">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 95%;">
+            <div class="sidebar-scroll" style="overflow: hidden; width: auto; height: 95%;">
+                <nav>
+                    <ul class="nav navMu">
+                        <li><a href="https://www.cnblogs.com/AC1Liu/"><i class="home icon"></i> <span class="home">首页</span></a></li>
+                        <li><a href="https://www.cnblogs.com/AC1Liu/p/"><i class="list icon"></i> <span class="note">我的随笔</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/articles/Links.html#Links" data-toggle="collapse" class="levelOne-pjftjfx collapsed"><i class="linkify icon"></i><span>常用链接</span> <i class="icon-submenu icon iconfont" style="font-size: 24px;margin-top: -9px;"></i></a>
+                            <div id="Links" class="collapse ">
+                                <ul class="nav">
+                                    <li><a href="http://portal.dlut.edu.cn/">大工校园门户</a></li>
+                                    <li><a href="http://mail.dlut.edu.cn/">大工电子邮件</a></li>
+                                    <li><a href="http://pan.dlut.edu.cn/">大工云盘</a></li>
+                                    <li><a href="https://csacademy.com/app/graph_editor/">图论作图工具</a></li>
+                                    <li><a href="https://latex.codecogs.com/eqneditor/editor.php">LaTeX 工具</a></li>
+                                    <li><a href="https://www.cnblogs.com/1Liu/articles/Links.html"><i></i>更多…</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="https://msg.cnblogs.com/send/AC1Liu"><i class="chat icon"></i> <span class="contact">联系我</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/p/MessageBoard.html"><i class="clipboard icon"></i> <span class="msg">留言板</span></a></li>
+                        <li><a href="https://www.cnblogs.com/1Liu/p/16349331.html"><i class="star icon"></i> <span class="lnk">友情链接</span></a></li>
+                        <li><a href="javascript:void(0)" data-rss="https://www.cnblogs.com/AC1Liu/rss/" id="blog_nav_rss"><i class="feed icon"></i> <span class="feed">RSS订阅</span></a></li>
+                        <li><a href="https://i.cnblogs.com/"><i class="setting icon"></i> <span class="bkgrd">管理后台</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!--done-->
+<div id="home">
+<div id="header">
+    <div id="blogTitle">
+<!--done-->
+<h1>大工教务选课系统</h1>
+    </div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+<div id="main">
+    <div id="mainContent">
+    <div class="forFlow">
+      <p>当前选课：<span style="font-weight: bold;">仅用于全校开课查询</span></p>
+
+<p style="color: red;">提示：该模块无法在手机上操作，请前往电脑端使用. </p>
+
+<h1>第一步：获取 课程ID</h1>
+
+<p>点击下面的“传送门”按钮，查询对应课程的课程ID：</p>
+
+<button class="hr-button" style="margin-bottom: 10px;" onclick="window.open('./addable-lessons.html')">传送门</button>
+
+<div><img src="/uploads/20250306193708.png" style="max-width: 50%;"></img></div>
+
+<p>在下面填写你希望选择的 课程 ID：</p>
+
+<input id="courseid" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入课程ID，填写的内容会自动保存，刷新页面不会丢失">
+
+<br><h1>第二步：获取 StudentID 、 SESSION 和 INGRESSCOOKIE</h1>
+
+<h3 style="font-weight: bold; font-family: '方正兰亭黑简体';">你可以选择直接输入统一身份认证的账号、密码，点击下面的“登录”按钮自动获取以上内容.</h3>
+<br>
+<div id="nologin">
+<p>在下面填写你的 统一身份认证 账号：</p>
+
+<input id="account" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入 统一身份认证 账号">
+<br>
+<p>在下面填写你的 统一身份认证 密码：</p>
+
+<input id="pass" type="password" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入 统一身份认证 密码">
+<br>
+<button class="hr-button" onclick="login()">登录</button>
+</div>
+<div id="loggedin" style="display: none;">
+<p>你已经以 <span id="identity" style="font-weight: bold;"></span> 的身份登录.</p>
+<button class="hb-button" onclick="confirmlogout()">注销</button>
+<br><br>
+<p>点击下面的“选课”按钮，开始选课.</p>
+</div>
+<br>
+<div id="manual">
+<br>
+<h3 style="font-weight: bold; font-family: '方正兰亭黑简体';">若你不希望提供账号和密码，你也可以通过以下方式手动获取以上内容.</h3>
+<br>
+<p>点击下面的“传送门”按钮，前往选课平台. 点击进入选课页面，前往浏览器地址栏找到 <code>StudentID</code>，并前往开发工具页面找到 <code>SESSION</code> 和  <code>INGRESSCOOKIE</code>：</p>
+
+<button class="hr-button" style="margin-bottom: 10px;" onclick="window.open('http://jxgl.dlut.edu.cn/student/for-std/course-select/single-student/turns')">传送门</button>
+
+<div><img src="/uploads/20250306204133.png" style="max-width: 50%;"></img></div>
+<br>
+<p style="color: red;">不要前往左上角关于页面获取Cookie，否则将会出现错误. </p>
+
+<div><img src="/uploads/20250306205051.png" style="max-width: 50%;"></img></div>
+<br>
+<p>在下面填写你的 <code>StudentID</code>：</p>
+
+<input id="stuid" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入StudentID，填写的内容会自动保存，刷新页面不会丢失">
+<br>
+<p>在下面填写你的 <code>SESSION</code>：</p>
+
+<input id="session" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入SESSION，填写的内容会自动保存，刷新页面不会丢失">
+<br>
+<p>在下面填写你的 <code>INGRESSCOOKIE</code>：</p>
+
+<input id="ingress" type="text" class="form-control wid-auto inl-block input-sm stuName" style="height: 34px; width: 40%;" placeholder="输入INGRESSCOOKIE，填写的内容会自动保存，刷新页面不会丢失">
+<br>
+<p>确认前面四项内容填写无误后，点击下面的“选课”按钮，开始选课.</p>
+<br>
+</div>
+
+<button class="hr-button" onclick="sendToServer()">选课</button>
+<br><br>
+<p>（测试功能）点击下面的“开始监听”按钮，监听课程余量.</p>
+<p>注意：请务必确保在前面填写了正确的数据，否则可能会监听失败.</p>
+<p style="color: red;">切勿用于非法用途！</p>
+
+<div id="attack"><button class="hr-button" onclick="startAttack()">开始监听</button></div>
+<br>
+<div id="attackcontainer" style="display: none;">
+    <h3 style="font-weight: bold; font-family: '方正兰亭黑简体';">选课结果</h3>
+    <p id="atnum"></p>
+    <p id="atinfo" style="font-size: 27px;font-weight: bold;width: 40%;text-align: center;border-style: dotted;border-color: gray;border-radius: 5px;padding: 20px 0;"></p>
+</div>
+<br>
+<p style="color: red;">注意！当且仅当长时间无响应结果时，才使用此选项. 否则可能会导致不可预知的错误发生！</p>
+
+<div id="attack"><button class="hw-button" onclick="flush()">重置并刷新请求</button></div>
+
+<script src="./des.js"></script>
+<script>
+    vex.dialog.defaultAlertOptions.buttons={};
+    vex.defaultOptions.overlayClosesOnClick=false;
+    vex.dialog.defaultOptions.showCloseButton=true;
+    vex.defaultOptions.className = 'vex-theme-default';
+    let v=2474;// 对应的课程学期
+    if(localStorage.getItem('islogin')===null) localStorage.setItem('islogin',0);
+    let flag=0;
+    let num=0;
+    var isattack=0;
+    function login() {
+        vex.dialog.alert({unsafeMessage: '正在登录中，请稍候…<br>'});
+        fetch('/course-select/getlt.php', {
+            method: 'GET'
+        })
+        .then(response => response.text())
+        .then(response => {
+            var lt=response.split(';');
+            var usr=document.getElementById('account').value;
+            var pass=strEnc(usr+document.getElementById('pass').value+lt[1],'1','2','3');
+            fetch('/course-select/login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    'Dlut-Cas-Un': usr,
+                    'Cas-Hash': '',
+                    'Jsessionidcas': lt[0]
+                },
+                body: 'rsa='+pass+'&ul='+usr.length+'&pl='+document.getElementById('pass').value.length+'&lt='+lt[1]+'&sl=0&execution=e1s1&_eventId=submit'
+            })
+            .then(response => response.text())
+            .then(response => {
+                if(response===";;")
+                    swal({
+                        title: "提示",
+                        text: "登录失败，请重试",
+                        type: "error",
+                        cancelButtonText: "确定",
+                        showConfirmButton: false,
+                        showCancelButton: true
+                    });
+                else
+                {
+                    var rsp=response.split(';'); localStorage.setItem('islogin',1);
+                    document.getElementById('stuid').value=rsp[0];
+                    document.getElementById('session').value=rsp[1];
+                    document.getElementById('ingress').value=rsp[2];
+                    localStorage.setItem('stuId',rsp[0]);
+                    localStorage.setItem('SESSION',rsp[1]);
+                    localStorage.setItem('INGRESSCOOKIE',rsp[2]);
+                    document.getElementById('stuid').disabled="disabled";
+                    document.getElementById('session').disabled="disabled";
+                    document.getElementById('ingress').disabled="disabled";
+                    document.getElementById('nologin').style.display="none";
+                    document.getElementById('manual').style.display="none";
+                    document.getElementById('identity').innerText=usr;
+                    document.getElementById('loggedin').style.display="block";
+                }
+                vex.closeTop();
+            })
+            .catch(error => {
+                vex.closeTop();
+                swal({
+                    title: "提示",
+                    text: "连接服务器失败，请重试",
+                    type: "error",
+                    cancelButtonText: "确定",
+                    showConfirmButton: false,
+                    showCancelButton: true
+                });
+            });
+        })
+        .catch(error => {
+            vex.closeTop();
+            swal({
+                title: "提示",
+                text: "连接服务器失败，请重试",
+                type: "error",
+                cancelButtonText: "确定",
+                showConfirmButton: false,
+                showCancelButton: true
+            });
+        });
+    }
+    function confirmlogout() {
+        swal({
+            title: "提示",
+            text: "确定注销吗？",
+            type: "warning",
+            confirmButtonText: "注销",
+            cancelButtonText: "取消",
+            confirmButtonColor: "url('/static/3215854-20240921213943249-1089453724.png')",
+            showCancelButton: true
+        },
+        function(isconfirm) {
+            if(isconfirm) logout();
+        });
+    }
+    function logout() {
+        localStorage.setItem('islogin',0);
+        document.getElementById('stuid').disabled="";
+        document.getElementById('session').disabled="";
+        document.getElementById('ingress').disabled="";
+        document.getElementById('nologin').style.display="block";
+        document.getElementById('manual').style.display="block";
+        document.getElementById('loggedin').style.display="none";
+    }
+    function flush() {
+        flag=0;
+        swal({
+            title: "提示",
+            text: "重置刷新请求成功",
+            type: "info",
+            confirmButtonText: "确定"
+        });
+    }
+    function sendToServer() {
+        if(!isattack) vex.dialog.alert({unsafeMessage: '系统正在处理中，请勿离开本页面!<br>'});
+        if(flag) return; flag=1;
+        let courseid=parseInt(document.getElementById('courseid').value);
+        let stuid=parseInt(document.getElementById('stuid').value);
+        let session=document.getElementById('session').value;
+        let ingress=document.getElementById('ingress').value;
+        var data={"studentAssoc":stuid,"courseSelectTurnAssoc":v,"requestMiddleDtos":[{"lessonAssoc":courseid,"virtualCost":0,"scheduleGroupAssoc":null}]};
+        fetch('/course-select/add-request.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Session': session,
+                'Ingresscookie': ingress
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.text())
+        .then(response => {
+            if(response==="false") {
+                swal({
+                    title: "提示",
+                    text: "验证失败，请检查填写的内容是否正确",
+                    type: "error",
+                    cancelButtonText: "确定",
+                    showConfirmButton: false,
+                    showCancelButton: true
+                });
+                flag=0; if(!isattack) vex.closeTop();
+            }
+            else if(response==="error") {
+                if(!isattack) vex.closeTop();
+                if(localStorage.getItem('islogin')!=='0') swal({
+                    title: "提示",
+                    text: "登录已过期，请点击“注销”按钮后重新登录",
+                    type: "error",
+                    cancelButtonText: "注销",
+                    showConfirmButton: false,
+                    showCancelButton: true
+                },
+                function(isconfirm) {
+                    if(!isconfirm) endAttack(),logout();
+                });
+                else swal({
+                    title: "提示",
+                    text: "Token输入有误或登录已过期，请检查填写内容或重新获取Token",
+                    type: "error",
+                    cancelButtonText: "确定",
+                    showConfirmButton: false,
+                    showCancelButton: true
+                },
+                function(isconfirm) {
+                    if(!isconfirm) endAttack();
+                });
+                flag=0;
+            }
+            else fetch('/course-select/add-drop-response.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    'Session': session,
+                    'Ingresscookie': ingress
+                },
+                body: 'studentId='+stuid+'&requestId='+response
+            })
+            .then(result => result.json())
+            .then(result => {
+                if(!isattack) vex.closeTop();
+                if(result.success===true) swal({
+                    title: "提示",
+                    text: "<span style='font-size: 27px; font-weight: bold;'>选课成功</span>",
+                    html: true,
+                    type: "success",
+                    confirmButtonText: "确定"
+                }),endAttack();
+                else
+                {
+                    if(isattack) document.getElementById('atinfo').innerHTML=result.errorMessage.text,document.getElementById('atnum').innerHTML='重试次数：'+(++num);
+                    else swal({
+                        title: "错误",
+                        text: "<span style='font-size: 27px; font-weight: bold;'>"+result.errorMessage.text+"</span>",
+                        type: "error",
+                        html: true,
+                        cancelButtonText: "确定",
+                        showConfirmButton: false,
+                        showCancelButton: true
+                    });
+                }
+                flag=0;
+            })
+            .catch(error => {
+                if(!isattack) vex.closeTop();
+                swal({
+                    title: "提示",
+                    text: "连接服务器失败，请重试",
+                    type: "error",
+                    cancelButtonText: "确定",
+                    showConfirmButton: false,
+                    showCancelButton: true
+                });
+                flag=0;
+            });
+        })
+        .catch(error => {
+            if(!isattack) vex.closeTop();
+            swal({
+                title: "提示",
+                text: "连接服务器失败，请重试",
+                type: "error",
+                cancelButtonText: "确定",
+                showConfirmButton: false,
+                showCancelButton: true
+            });
+            flag=0;
+        });
+    }
+    var sendattack;
+    function startAttack() {
+        document.getElementById('attack').innerHTML='<button class="hb-button" onclick="endAttack()">停止监听</button>';
+        document.getElementById('attackcontainer').style.display='block';
+        document.getElementById('atinfo').innerHTML='系统正在处理中，请勿离开本页面!';
+        document.getElementById('atnum').innerHTML='重试次数：0';
+        sendattack=setInterval("sendToServer()","1000"); isattack=1; num=0;
+    }
+    function endAttack() {
+        document.getElementById('attack').innerHTML='<button class="hr-button" onclick="startAttack()">开始监听</button>';
+        document.getElementById('attackcontainer').style.display='none';
+        clearInterval(sendattack); isattack=0;
+    }
+    if(localStorage.getItem('islogin')!=='0')
+    {
+        document.getElementById('stuid').disabled="disabled";
+        document.getElementById('session').disabled="disabled";
+        document.getElementById('ingress').disabled="disabled";
+        document.getElementById('nologin').style.display="none";
+        document.getElementById('manual').style.display="none";
+        document.getElementById('identity').innerText=localStorage.getItem('account');
+        document.getElementById('loggedin').style.display="block";
+    }
+    document.getElementById('account').onchange=function() { localStorage.setItem('account',this.value); }
+    document.getElementById('pass').onchange=function() { localStorage.setItem('pass',strEnc(this.value,'1','2','3')); }
+    document.getElementById('courseid').onchange=function() { localStorage.setItem('courseId',this.value); }
+    document.getElementById('stuid').onchange=function() { localStorage.setItem('stuId',this.value); }
+    document.getElementById('session').onchange=function() { localStorage.setItem('SESSION',this.value); }
+    document.getElementById('ingress').onchange=function() { localStorage.setItem('INGRESSCOOKIE',this.value); }
+    window.onload = function(){
+        document.getElementById('account').value=localStorage.getItem('account');
+        document.getElementById('pass').value=strDec(localStorage.getItem('pass'),'1','2','3');
+        document.getElementById('courseid').value=localStorage.getItem('courseId');
+        document.getElementById('stuid').value=localStorage.getItem('stuId');
+        document.getElementById('session').value=localStorage.getItem('SESSION');
+        document.getElementById('ingress').value=localStorage.getItem('INGRESSCOOKIE');
+    }
+</script>
+
+    </div><!--end: forFlow -->
+    </div><!--end: mainContent 主体内容容器-->
+    <div class="clear"></div>
+    </div><!--end: main -->
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright © 2025 1Liu
+<br>
+
+
+
+    </div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+    <div id="page_end_html">
+        <div style="display:none;">
+<div style="height: calc(100vh); width: 100%;"></div>
+<link rel="stylesheet" href="/static/swal-new.css">
+<script src="/static/sweetalert-dev.js"></script>
+<script type="text/javascript" language="javascript">
+{
+    $('#loading').fadeOut();
+    // $('body').css('overflow','scroll');
+    $('.wrapper').fadeIn();
+}
+window.alert = function (txt) {
+  // vex.defaultOptions.className = 'vex-theme-default'
+  //   vex.dialog.confirm({message: txt, callback: function(value){}})
+  swal({
+    title: "",
+    text: txt,
+    type: "error",
+    showCancelButton: true,
+    showConfirmButton: false,
+    cancelButtonText: "确定"
+  });
+}
+function weblink(obj){
+    var link = obj.href;
+    // console.log(link);
+    if (link != null && link != '')
+    {
+        if(link.substr(0,25).toLowerCase()=="http://www.cnblogs.com"||link.substr(0,25).toLowerCase()=="https://www.cnblogs.com"){
+            return true;
+        }else{
+            if(confirm('您即将访问 '+link+'. 该网站不属于博客园，可能存在安全风险，请谨慎访问. 确定继续吗？'))
+            {
+                window.location.href = link;
+            }
+        }
+    }
+    return false;
+}
+</script></div>
+
+    </div>
+</body></html>
