@@ -1,6 +1,8 @@
 # 大工教务选课系统
 
-**Demo**：http://labs.ac1liu.tech/course-select/
+由于现有系统不适配，现已停止开发.
+
+可选择使用以下自动选课系统：https://github.com/songhahaha66/dlut_auto_select_courses
 
 警告：此系统仅用于测试，禁止对学校的系统进行任何形式的恶意攻击，否则造成的后果自负.
 
